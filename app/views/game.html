@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="row-fluid" ng-show="!playerNameSet">
+		<div class="col-md-4">
+			<input class="form-control input-lg" type="text" ng-model="playerName" placeholder="Enter Player Name">
+		</div>
+		<div class="col-md-2">
+			<button class="form-control input-lg btn btn-primary" ng-click="setPlayerName()">OK</button>
+		</div>
+	</div>
+	
+	<div class="row-fluid" ng-show="playerNameSet">
+	<div class="col-md-8">
+		<h1 class="text-success">Let's start the game, {{playerName}} ! <button class="col-md-2 input-lg btn btn-success pull-right" ng-click="triggerNewMapSet()">Next Map set!</button></h1>
+		<p>Choose an image of a location which you think is the closes to your current location.</p>
+
+		<ul ng-repeat="map in mapList">
+			<img ng-src={{map.path}} 
+				 ng-click="isThisClosest(map.distanceFromMe)"	
+				 class="col-md-6"	
+		    />
+		</ul>
+
+	</div>
+	<div class="col-md-4 well">
+		<div class="col-md-12">
+			<button class="col-md-4 btn btn-primary" ng-click="resetPlayerName()">Change Name</button>
+			<button class="col-md-4 btn btn-warning" ng-click="resetGeolocation()">Reset Location</button>
+			<button class="col-md-4 btn btn-danger" ng-click="resetGame()">Reset Game</button>
+		</div>
+		<br><br><hr>
+		<center><h3 class="text-danger">Points Table</h3></center>
+		<hr>
+		<p>Points Gained: {{points.correctAnswers}}</p>
+		<p>Points Lost: {{points.wrongAnswers}}</p>
+		<hr>
+		<h4>Total Points: {{points.correctAnswers - points.wrongAnswers}}</h4>
+		<h2 class="text-danger" ng-show="answerWrong">Previous answer was wrong!</h2>
+		<h2 class="text-success" ng-show="answerCorrect">Previous answer was correct!</h2>
+	</div>
+	</div>
+
+
+</div>
