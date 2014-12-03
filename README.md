@@ -1,7 +1,7 @@
 map-guru
 ========
 
-Are you a map guru? Play this game to find out!
+Are you a Google Maps guru? Play this Google Maps based game to find out! Identify the closest location amongst the static maps shown and get some points. 
 
 Demo: http://rohitjha.com/labs/map-guru
 
